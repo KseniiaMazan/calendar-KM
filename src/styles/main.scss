@@ -1,7 +1,56 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/mixins";
 
-body {
-  background: $c-gray;
+.calendar {
+  font: 30px Arial, sans-serif;
+  display: grid;
+  grid-template: repeat(5, 100px) / repeat(7, 100px);
+  grid-gap: 1px;
+  div:nth-of-type(1) {
+    @include hover_and_before(1);
+  }
+  &-mon div:nth-of-type(1) {
+    grid-column-start: 1;
+  }
+  &-tue div:nth-of-type(1) {
+    grid-column-start: 2;
+  }
+  &-wed div:nth-of-type(1) {
+    grid-column-start: 3;
+  }
+  &-thu div:nth-of-type(1) {
+    grid-column-start: 4;
+  }
+  &-fri div:nth-of-type(1) {
+    grid-column-start: 5;
+  }
+  &-sat div:nth-of-type(1) {
+    grid-column-start: 6;
+  }
+  &-sun div:nth-of-type(1) {
+    grid-column-start: 7;
+  }
+}
+
+@for $i from 2 through 30 {
+  .calendar-30 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
+}
+
+@for $i from 1 through 31 {
+  .calendar-31 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
+}
+
+@for $i from 1 through 29 {
+  .calendar-29 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
+}
+
+@for $i from 1 through 28 {
+  .calendar-28 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
 }

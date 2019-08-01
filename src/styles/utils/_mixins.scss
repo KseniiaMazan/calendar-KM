@@ -1,6 +1,17 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover_and_before ($value) {
+  background-color: #eee;
+  border: solid black 1px;
+  transition: transform 2s;
+  position: relative;
+  &::before {
+    content: "#{$value}";
+    position: absolute;
+    left: 40%;
+    top: 35%;
+  }
   &:hover {
-    #{$_property}: $_toValue;
+    cursor: pointer;
+    transform: translateY(-20px);
+    background-color: pink;
   }
 }
