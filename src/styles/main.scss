@@ -5,33 +5,19 @@
   display: grid;
   grid-template: repeat(5, 100px) / repeat(7, 100px);
   grid-gap: 1px;
-  div:nth-of-type(1) {
-    @include hover_and_before(1);
-  }
-  &-mon div:nth-of-type(1) {
-    grid-column-start: 1;
-  }
-  &-tue div:nth-of-type(1) {
-    grid-column-start: 2;
-  }
-  &-wed div:nth-of-type(1) {
-    grid-column-start: 3;
-  }
-  &-thu div:nth-of-type(1) {
-    grid-column-start: 4;
-  }
-  &-fri div:nth-of-type(1) {
-    grid-column-start: 5;
-  }
-  &-sat div:nth-of-type(1) {
-    grid-column-start: 6;
-  }
-  &-sun div:nth-of-type(1) {
-    grid-column-start: 7;
+}
+
+$days_of_week: mon, tue, wed, thu, fri, sat, sun;
+@each $day in $days_of_week {
+  $i: index($days_of_week, $day);
+  .calendar-#{$day} {
+    div:nth-of-type(1) {
+      grid-column-start: $i;
+    }
   }
 }
 
-@for $i from 2 through 30 {
+@for $i from 1 through 30 {
   .calendar-30 div:nth-of-type(#{$i}) {
     @include hover_and_before (#{$i});
   }
