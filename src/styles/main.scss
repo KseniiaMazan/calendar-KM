@@ -3,7 +3,7 @@
 .calendar {
   font: 30px Arial, sans-serif;
   display: grid;
-  grid-template: repeat(5, 100px) / repeat(7, 100px);
+  grid-template: repeat(6, 100px) / repeat(7, 100px);
   grid-gap: 1px;
 }
 
