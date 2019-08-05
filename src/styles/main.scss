@@ -1,7 +1,42 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/mixins";
 
-body {
-  background: $c-gray;
+.calendar {
+  font: 30px Arial, sans-serif;
+  display: grid;
+  grid-template: repeat(6, 100px) / repeat(7, 100px);
+  grid-gap: 1px;
+}
+
+$days_of_week: mon, tue, wed, thu, fri, sat, sun;
+@each $day in $days_of_week {
+  $i: index($days_of_week, $day);
+  .calendar-#{$day} {
+    div:nth-of-type(1) {
+      grid-column-start: $i;
+    }
+  }
+}
+
+@for $i from 1 through 30 {
+  .calendar-30 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
+}
+
+@for $i from 1 through 31 {
+  .calendar-31 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
+}
+
+@for $i from 1 through 29 {
+  .calendar-29 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
+}
+
+@for $i from 1 through 28 {
+  .calendar-28 div:nth-of-type(#{$i}) {
+    @include hover_and_before (#{$i});
+  }
 }
